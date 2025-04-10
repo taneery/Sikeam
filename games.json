@@ -1,0 +1,16 @@
+{
+    "games": [
+        {
+            "name": "Grand Theft Auto V",
+            "links": ["https://gofile.io/d/abc123", "https://gofile.io/d/def456"],
+            "image": "gta_v.jpg",
+            "exe": "GTA5.exe"
+        },
+        {
+            "name": "Counter-Strike: GO",
+            "links": ["https://gofile.io/d/xyz789"],
+            "image": "csgo.jpg",
+            "exe": "csgo.exe"
+        }
+    ]
+}
