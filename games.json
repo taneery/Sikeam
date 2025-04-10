@@ -1,16 +1,18 @@
-{
-    "games": [
-        {
-            "name": "Grand Theft Auto V",
-            "links": ["https://gofile.io/d/YFmxYC", "https://gofile.io/d/bX4FDv"],
-            "image": "gta_v.jpg",
-            "exe": "GTA5.exe"
-        },
-        {
-            "name": "Counter-Strike 2",
-            "links": ["https://gofile.io/d/xyz789"],
-            "image": "csgo.jpg",
-            "exe": "csgo.exe"
-        }
-    ]
-}
+[
+  {
+    "name": "Kanka Oyunu 1",
+    "description": "Test oyunu",
+    "parts": [
+      "https://gofile.io/d/YFmxYC"
+    ],
+    "exe": "oyun1.exe"
+  },
+  {
+    "name": "Marvel’s Spider-Man 2",
+    "description": "FitGirl Repack",
+    "parts": [
+      "https://fitgirl-repacks.site/marvels-spider-man-2/"
+    ],
+    "exe": "spiderman2.exe"
+  }
+]
