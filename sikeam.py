@@ -9,7 +9,7 @@ from PyQt5.QtGui import QPixmap, QFont
 
 # Güncelleme kontrolü
 def check_update():
-    json_url = "https://raw.githubusercontent.com/kullanici/sikeam/master/games.json"  # Kendi GitHub linkini koy
+    json_url = "https://github.com/taneery/Sikeam/blob/main/games.json"  # Kendi GitHub linkini koy
     try:
         response = requests.get(json_url)
         with open("games.json", "wb") as f:

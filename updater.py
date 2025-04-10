@@ -3,7 +3,7 @@ import os
 import shutil
 
 def update_sikeam():
-    base_url = "https://raw.githubusercontent.com/kullanici/sikeam/master/"
+    base_url = "https://github.com/taneery/Sikeam/tree/main"
     files = ["sikeam.py", "games.json", "styles/steam.qss"]
     for file in files:
         try:
