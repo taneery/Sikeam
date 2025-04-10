@@ -7,9 +7,9 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidget, QPushButton,
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QFont
 
-# Güncelleme kontrolü
+# Güncelleme
 def check_update():
-    json_url = "https://github.com/taneery/Sikeam/blob/main/games.json"  # Kendi GitHub linkini koy
+    json_url = "https://raw.githubusercontent.com/taneery/Sikeam/master/games.json"
     try:
         response = requests.get(json_url)
         with open("games.json", "wb") as f:
@@ -44,14 +44,17 @@ class SikeamWindow(QMainWindow):
         # Ana layout
         main_layout = QHBoxLayout()
 
-        # Sidebar
+        # Sidebar (Steam kütüphanesi)
         self.sidebar = QListWidget()
-        self.sidebar.setFixedWidth(300)
+        selfcação.setFixedWidth(300)
         main_layout.addWidget(self.sidebar)
 
         # Sağ panel
         right_panel = QFrame()
         right_layout = QVBoxLayout()
+
+        # Üst boşluk
+        right_layout.addStretch(1)
 
         # Oyun resmi
         self.game_image = QLabel()
@@ -59,21 +62,24 @@ class SikeamWindow(QMainWindow):
         right_layout.addWidget(self.game_image)
 
         # Oyun adı
-        self.game_name = QLabel("Sikeam’a Hoş Geldin")
-        self.game_name.setFont(QFont("Arial", 28, QFont.Bold))
+        self.game_name = QLabel("Sikeam")
+        self.game_name.setFont(QFont("Motiva Sans", 28, QFont.Bold))  # Steam fontu
         self.game_name.setAlignment(Qt.AlignCenter)
         right_layout.addWidget(self.game_name)
 
         # Durum
-        self.status_label = QLabel("Durum: -")
-        self.status_label.setFont(QFont("Arial", 16))
+        self.status_label = QLabel("Bir oyun seç")
+        self.status_label.setFont(QFont("Motiva Sans", 14))
         self.status_label.setAlignment(Qt.AlignCenter)
         right_layout.addWidget(self.status_label)
 
         # Buton
         self.action_btn = QPushButton("İndir")
-        right_layout.addWidget(self.action_btn)
-        right_layout.addStretch()
+        self.action_btn.setFixedSize(200, 50)
+        self.action_btn.setFont(QFont("Motiva Sans", 16))
+        right_layout.addWidget(self.action_btn, alignment=Qt.AlignCenter)
+
+        right_layout.addStretch(2)
 
         right_panel.setLayout(right_layout)
         main_layout.addWidget(right_panel)
@@ -104,18 +110,18 @@ class SikeamWindow(QMainWindow):
         self.game_name.setText(game["name"])
         game_path = f"games/{game['name']}"
         if os.path.exists(game_path):
-            self.status_label.setText("Durum: Oynamaya Hazır")
-            self.action_btn.setText("Oyna")
+            self.status_label.setText("Installed")
+            self.action_btn.setText("Play")
             self.action_btn.clicked.connect(lambda: os.startfile(f"{game_path}/{game['exe']}"))
         else:
-            self.status_label.setText("Durum: Yüklü Değil")
-            self.action_btn.setText("İndir")
+            self.status_label.setText("Not Installed")
+            self.action_btn.setText("Install")
             self.action_btn.clicked.connect(lambda: self.start_download(game["links"], game["name"]))
 
     def start_download(self, links, game_name):
         download_and_extract(links, game_name)
-        self.status_label.setText("Durum: Oynamaya Hazır")
-        self.action_btn.setText("Oyna")
+        self.status_label.setText("Installed")
+        self.action_btn.setText("Play")
 
 # Çalıştır
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ import os
 import shutil
 
 def update_sikeam():
-    base_url = "https://github.com/taneery/Sikeam/tree/main"
+    base_url = "https://raw.githubusercontent.com/taneery/Sikeam/master/"
     files = ["sikeam.py", "games.json", "styles/steam.qss"]
     for file in files:
         try:
@@ -18,4 +18,4 @@ def update_sikeam():
 
 if __name__ == "__main__":
     update_sikeam()
-    os.system("sikeam.exe")  # Güncelledikten sonra çalıştır
+    os.system("sikeam.exe")
