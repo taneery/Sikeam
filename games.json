@@ -12,11 +12,5 @@
             "image": "csgo.jpg",
             "exe": "csgo.exe"
         }
-        {
-            "name": "Seksman",
-            "links": ["https://gofile.io/d/xyz789"],
-            "image": "seksman.jpg",
-            "exe": "seksi.exe"
-        }
     ]
 }
