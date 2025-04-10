@@ -14,6 +14,7 @@ QListWidget {
 QListWidget::item {
     color: #d3d6d8;
     padding: 6px;
+    height: 30px;
 }
 
 QListWidget::item:selected {

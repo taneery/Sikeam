@@ -37,8 +37,13 @@ class SikeamWindow(QMainWindow):
         self.setWindowTitle("Sikeam")
         self.setGeometry(100, 100, 1280, 720)
 
-        # Stil yükleme
-        with open("styles/steam.qss", "r") as f:
+        # Stil dosyasını bul (exe için dinamik yol)
+        if getattr(sys, 'frozen', False):  # Exe içindeyse
+            base_path = sys._MEIPASS
+        else:  # .py çalışıyorsa
+            base_path = os.path.dirname(__file__)
+        style_path = os.path.join(base_path, "styles", "steam.qss")
+        with open(style_path, "r") as f:
             self.setStyleSheet(f.read())
 
         # Ana layout
@@ -63,7 +68,7 @@ class SikeamWindow(QMainWindow):
 
         # Oyun adı
         self.game_name = QLabel("Sikeam")
-        self.game_name.setFont(QFont("Arial", 28, QFont.Bold))  # Motiva Sans yoksa Arial
+        self.game_name.setFont(QFont("Arial", 28, QFont.Bold))
         self.game_name.setAlignment(Qt.AlignCenter)
         right_layout.addWidget(self.game_name)
 
