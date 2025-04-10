@@ -44,9 +44,9 @@ class SikeamWindow(QMainWindow):
         # Ana layout
         main_layout = QHBoxLayout()
 
-        # Sidebar (Steam kütüphanesi)
+        # Sidebar
         self.sidebar = QListWidget()
-        selfcação.setFixedWidth(300)
+        self.sidebar.setFixedWidth(300)
         main_layout.addWidget(self.sidebar)
 
         # Sağ panel
@@ -63,20 +63,20 @@ class SikeamWindow(QMainWindow):
 
         # Oyun adı
         self.game_name = QLabel("Sikeam")
-        self.game_name.setFont(QFont("Motiva Sans", 28, QFont.Bold))  # Steam fontu
+        self.game_name.setFont(QFont("Arial", 28, QFont.Bold))  # Motiva Sans yoksa Arial
         self.game_name.setAlignment(Qt.AlignCenter)
         right_layout.addWidget(self.game_name)
 
         # Durum
         self.status_label = QLabel("Bir oyun seç")
-        self.status_label.setFont(QFont("Motiva Sans", 14))
+        self.status_label.setFont(QFont("Arial", 14))
         self.status_label.setAlignment(Qt.AlignCenter)
         right_layout.addWidget(self.status_label)
 
         # Buton
         self.action_btn = QPushButton("İndir")
         self.action_btn.setFixedSize(200, 50)
-        self.action_btn.setFont(QFont("Motiva Sans", 16))
+        self.action_btn.setFont(QFont("Arial", 16))
         right_layout.addWidget(self.action_btn, alignment=Qt.AlignCenter)
 
         right_layout.addStretch(2)

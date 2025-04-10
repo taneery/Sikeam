@@ -1,7 +1,7 @@
 QMainWindow {
     background-color: #1e2528;
     color: #d3d6d8;
-    font-family: "Motiva Sans";
+    font-family: Arial;
 }
 
 QListWidget {
